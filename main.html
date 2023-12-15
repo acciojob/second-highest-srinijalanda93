@@ -8,31 +8,54 @@
 
 <body>	
 	<script>
-		function secondHighest(arr) {
+	//	function secondHighest(arr) {
+   // let firstMax = Number.MIN_VALUE;
+   // let secMax = Number.MIN_VALUE;
+
+ //    if (arr.length === 0 || arr.length === 1 || arr.length < 2) {
+ //        return undefined;
+ //    }
+	// else if (arr.length >= 2) {
+ //        // First, find the Max No
+ //        for (let num of arr) {
+ //            if (num > firstMax) {
+ //                firstMax = num;
+ //            }
+ //        }
+ //        // After coming out of the loop, firstMax = 5 (largest)
+ //        for (let num of arr) {
+ //            if (num > secMax && num < firstMax) {
+ //                secMax = num;
+ //            }
+ //        }
+ //        return secMax;
+ //    }
+
+ //    return undefined;
+//}
+function secondHighest(arr) {
     let firstMax = Number.MIN_VALUE;
     let secMax = Number.MIN_VALUE;
 
-    if (arr.length === 0 || arr.length === 1 || arr.length < 2) {
+    if (arr.length < 2) {
         return undefined;
-    } else if (arr.length >= 2) {
-        // First, find the Max No
-        for (let num of arr) {
-            if (num > firstMax) {
-                firstMax = num;
-            }
-        }
-        // After coming out of the loop, firstMax = 5 (largest)
-        for (let num of arr) {
-            if (num > secMax && num < firstMax) {
-                secMax = num;
-            }
-        }
-        return secMax;
     }
 
-    return undefined;
-}
+    for (let num of arr) {
+        if (num > firstMax) {
+            secMax = firstMax;
+            firstMax = num;
+        } else if (num > secMax && num < firstMax) {
+            secMax = num;
+        }
+    }
 
+    if (secMax === Number.MIN_VALUE) {
+        return undefined; // All elements are the same
+    }
+
+    return secMax;
+}
 function Main() {
     // var n = prompt("Enter the number of elements");
     var arr = [];
