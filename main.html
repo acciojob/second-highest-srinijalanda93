@@ -36,7 +36,9 @@
 function secondHighest(arr) {
     let firstMax = Number.MIN_VALUE;
     let secMax = Number.MIN_VALUE;
-
+ if (arr.length === 0 || arr.length === 1 ){
+	 return undefined;
+ }
     if (arr.length < 2) {
         return undefined;
     }
