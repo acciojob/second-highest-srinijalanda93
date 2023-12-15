@@ -9,12 +9,31 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
+			let fristMax=Number.MIN_VALUE;
+			let secMax=Number.MIN_VALUE;
+			if(arr.length===0) return "-Infinity";
+			else if(arr.length===1) return "-Infinity";
+			else if (arr.length >=2){
+				//first find the MAx No
+				for(let num of arr){
+					if(num>fristMax){
+						fristMax=num
+					}
+				}
+				//after coming out of the loop the FristMax=5(larger)
+				for(let num of arr){
+					if(num>secMaxMax && secMax <fristMax){
+						secMax=num
+					}
+				}
+				return secMax; 
+			}
+			return "-Infinity";
 			
 		}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
+			//var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
